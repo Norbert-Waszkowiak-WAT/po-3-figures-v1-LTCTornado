@@ -69,15 +69,15 @@ void Group::add(Quadrilateral t){
     quadrilaterals.push_back(t);
 }
 
-double Group::getSurface(){
-    double surface = 0;
-    for(int i = 0; i < triangles.size();i++){
-        surface += triangles[i].getSurface();
+double Group::getSurface() {
+    double result = 0;
+    for (auto &triangle : triangles) {
+        result += triangle.getSurface();
     }
-    for(int i = 0; i < quadrilaterals.size();i++){
-        surface += triangles[i].getSurface();
+    for (auto &quadrilateral : quadrilaterals) {
+        result += quadrilateral.getSurface();
     }
-    return surface;
+    return result;
 }
 
 void Group::flip(){
